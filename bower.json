@@ -1,0 +1,25 @@
+{
+  "name": "site",
+  "description": "site",
+  "main": "index.js",
+  "authors": [
+    "alex"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "app/libs/",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "normalize-css": "^5.0.0",
+    //"susy": "^2.2.12",
+  },
+  "devDependencies": {
+    "breakpoint-sass": "^2.7.1"
+  }
+}

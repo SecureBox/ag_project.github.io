@@ -1,0 +1,262 @@
+@import "fonts";
+@import "vars";
+@import "grid--inline-block";
+@import "libs";
+
+/*
+using http://breakpoint-sass.com/
+*/
+
+/* -----------------------------------------------------------------------------
+
+  			Clearfix and box-sizing
+
+----------------------------------------------------------------------------- */
+
+.clearfix {
+  &::before, &::after {
+    content: " ";
+    display: table;
+    clear: both;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+/*------------------------------------------------------------------------------
+
+																MAIN STYLES                             
+
+------------------------------------------------------------------------------*/
+
+html, body {
+   height: 100%;
+   width : 100%;
+   margin: 0;
+   padding: 0;
+   position: relative;
+}
+
+html {
+	font-family: $font-default;
+	font-size: 10px;
+}
+
+.img-responsive {
+	display: block;
+	max-width: 100%;
+	height: auto;
+}
+
+.main-wrapper {
+	padding: 0 0 0 0;
+	min-width: 320px;
+	position: relative;
+	overflow: hidden;
+	min-height:100%;
+}
+
+.wrapper {
+	min-width: 320px;
+	max-width: 1200px;
+	//padding: 0 45px 0 45px;
+	margin: 0 auto;
+	position: relative;
+}
+
+/* titles */
+
+h1 {
+	font-size: 2rem;
+}
+
+h2 {
+	font-size: 1.8rem;
+
+}
+h3 {
+	font-size: 1.6rem;
+	font-weight: 700;
+}
+
+p {
+	font-size: 1.4rem;
+}
+
+/* text position */
+.text-left{text-align: left;}
+.text-center{text-align: center;}
+.text-right{text-align: right;}
+.nowrap{white-space: nowrap;}
+
+
+/* loader */
+.loaded .main-wrapper {
+	visibility:hidden;
+}
+.icon-load {
+	background:url(../img/loader3.gif) no-repeat left top;
+	width:40px;height:40px;position:fixed;
+	left:50%;
+	top:20px;
+	margin-left:-20px;
+	margin-left:-20px;
+	display:none;
+}
+.loaded .icon-load {
+	display:block;
+}
+/*------------------- highlighting -------------------------*/
+
+.outl-blue { outline: 1px solid blue; }
+.outl-green { outline: 1px solid green; }
+.outl-gold { outline: 1px solid gold; }
+.outl-red { outline: 1px solid red; }
+
+
+/*------------------- end highlighting -------------------------*/
+
+
+.wrapper {
+	//font-size: 1.5rem;
+  //@include layout(12 (200px 20px) inside-static fluid);
+}
+
+.content {
+  font-size: 1rem;
+  @include colw(12);
+
+  @include breakpoint( 320px ){
+    background-color: lightblue;
+  }
+  @include breakpoint( 768px ){
+    @include colw(6,12);
+    background-color: silver;
+  }
+  @include breakpoint( 1024px ){
+    @include colw(8,12);
+    background-color: grey;
+  }
+
+}
+
+.sidebar {
+  @include colw(12);
+
+  @include breakpoint( 320px ){
+    background-color: pink;
+  }
+  @include breakpoint( 768px ){
+    @include colw(6,12);
+    background-color: silver;
+  }
+  @include breakpoint( 1024px ){
+    @include colw(2,12);
+    margin-left: colw(2,12);
+    background-color: grey;
+  }
+}
+
+.fff {
+  @include colw(6);
+  text-align: center;
+  font: 3rem 'Lora', serif;
+  background-color: lightblue;
+
+}
+
+
+
+
+
+.social {
+	@include breakpoint( 768px ){
+    background-color: lightgreen;
+  }
+	ul {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+  /* Adds a padding of 19px to each side of the .social container */
+  //padding: gutter();
+  /* Adding a clearfix because all children elements are floated */
+ 
+
+  .social__list-item {
+
+    /* Telling Susy that there are 10 items, and each takes up 1 row */
+    
+    padding-right: 0;
+  	padding-left: 0;
+    /* Another way to tell Susy that this is the last item in the row */
+    &:last-child {
+      //@include last;
+    }
+  }
+}
+
+
+
+.section {
+	font-size: 1.5rem;
+	//margin-top: 3rem;
+	//@include layout(12 (200px 20px) inside-static fluid);
+}
+
+.section__content {
+  
+}
+
+.section__sidebar {
+ 
+
+  @include breakpoint( 320px ){
+    background-color: white;
+  }
+  @include breakpoint( 768px ){
+    background-color: silver;
+  }
+  @include breakpoint( 1024px ){
+    background-color: grey;
+  }
+}
+
+ 
+.section .section__social {
+	@include breakpoint( 768px ){
+    background-color: lightgreen;
+  }
+	ul {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+  /* Adds a padding of 19px to each side of the .social container */
+  //padding: gutter();
+  /* Adding a clearfix because all children elements are floated */
+  
+
+  .section__social__list-item {
+
+    /* Telling Susy that there are 10 items, and each takes up 1 row */
+    
+    padding-right: 0;
+  	padding-left: 0;
+    /* Another way to tell Susy that this is the last item in the row */
+    &:last-child {
+      //@include last;
+    }
+  }
+}
+
+/*------------------------------------ MEDIA ------------------*/
+@import "media"; //always at the end

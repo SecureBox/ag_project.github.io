@@ -1,0 +1,45 @@
+/*
+inline-block grid system
+
+usage:
+make container with class "row--inline-block", and then make childs with class "r-i"
+*/
+
+/* A zero-width web font for clearing whitespace between inline-blocks (just for safari) (https://github.com/patrickkunka/zero-width) */
+@import url('//cdn.jsdelivr.net/font-zero-width/latest/zero-width.css');
+
+
+/*----------------------------------------------
+							mixins
+-----------------------------------------------*/
+
+/*12 columns default*/
+
+@mixin colw($span, $context:12 ) {
+
+	width: percentage($span / $context);
+}
+/*----------------------------------------------
+							functions
+-----------------------------------------------*/
+@function colw($span, $context:12 ) {
+
+	@return percentage($span / $context);
+}
+/*----------------------------------------------
+							basics
+-----------------------------------------------*/
+$font-base: 1.4rem Arial, Helvetica, sans-serif;
+
+.row--inline-block {
+	font-family: "zero-width";  // for safari
+	font-size: 0; 
+}
+
+.r-i {
+	float: none;
+	display: inline-block;
+	vertical-align: top;
+	font: $font-base;
+}
+
